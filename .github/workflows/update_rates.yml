@@ -1,0 +1,28 @@
+name: Update material rates
+
+on:
+  schedule:
+    - cron: "0 6 1,15 * *"   # 06:00 UTC on the 1st and 15th of each month
+  workflow_dispatch: {}        # lets you trigger it manually from the GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests beautifulsoup4 pandas
+
+      - run: python scraper/update_rates.py
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "rate-bot"
+          git config user.email "actions@github.com"
+          git add data/material_rates.csv
+          git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update material rates"
+          git push

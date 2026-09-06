@@ -1,0 +1,13 @@
+city,grey_structure_rate_low,grey_structure_rate_high,finishing_rate_low,finishing_rate_high,labor_pct,last_updated,source
+Karachi,2700,3200,2400,5000,0.32,2026-02-03,"The News (govt urban CPI, Jan 2026) + Zameen construction cost calculator"
+Lahore,2800,3800,2500,5500,0.35,2026-02-03,"dailycapital.pk construction cost guide (2026) + The News govt CPI"
+Islamabad,2800,3500,2500,5200,0.33,2026-02-03,"Zameen construction cost calculator + The News govt CPI"
+Rawalpindi,2700,3400,2400,5000,0.33,2026-02-03,"Estimated from Islamabad twin-city pattern - needs local validation"
+Faisalabad,2400,2800,2000,4200,0.30,2026-02-03,"greekexclusiveproperties.com regional guide - smaller-city bracket"
+Multan,2400,2800,2000,4200,0.30,2026-02-03,"greekexclusiveproperties.com regional guide - smaller-city bracket"
+Peshawar,2500,3000,2200,4500,0.30,2026-02-03,"The News (govt urban CPI, Jan 2026)"
+Quetta,2500,3100,2200,4600,0.32,2026-02-03,"The News (govt urban CPI, Jan 2026) - remote logistics city, wide variance, treat cautiously"
+Gujranwala,2400,2800,2000,4200,0.30,2026-02-03,"Estimated from Punjab industrial-city pattern - needs local validation"
+Sialkot,2400,2900,2100,4300,0.30,2026-02-03,"Estimated from Punjab industrial-city pattern - needs local validation"
+Hyderabad,2400,2900,2100,4300,0.30,2026-02-03,"Estimated from Sindh regional pattern (lowest iron-bar price in govt CPI data) - needs local validation"
+Sargodha,2300,2700,2000,4000,0.30,2026-02-03,"Estimated from smaller Punjab-city pattern - needs local validation"

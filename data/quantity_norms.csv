@@ -1,0 +1,6 @@
+material,qty_per_sqft,unit,confidence,notes
+Cement (OPC 50kg bag),0.40,bag,rule_of_thumb,"Common industry rule of thumb for grey structure (foundation+RCC+brickwork+plaster) of a low-rise house. Validate against your structural drawing/BOQ."
+Steel Rebar (Grade 60),3.50,kg,rule_of_thumb,"Typical range quoted is 3-4 kg/sqft for G+1 residential RCC frame; using midpoint. Increase for larger spans or extra floors."
+Bricks (Grade A),0.008,1000_units,rule_of_thumb,"Equivalent to ~8 bricks per sqft covered area, expressed in thousands to match the material_rates unit (price per 1000 bricks)."
+Sand,1.20,cft,rule_of_thumb,"Combined estimate for brickwork mortar, plaster, and flooring bed per sqft covered area."
+Crush/Bajri,0.90,cft,rule_of_thumb,"Combined estimate for RCC concrete work per sqft covered area."
