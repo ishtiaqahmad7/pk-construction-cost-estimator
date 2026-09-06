@@ -22,14 +22,27 @@ def load_data(data_dir="data"):
 
 
 def simple_estimate(city_rates: pd.DataFrame, city: str, area_sqft: float, quality: str = "standard"):
-    """Per-sqft rate x area. quality is 'standard' or 'premium' (affects finishing rate only)."""
+    """Per-sqft rate x area. quality is 'standard' or 'premium'.
+
+    Both grey structure and finishing now shift with quality tier: 'standard'
+    lands in the lower third of the city's range, 'premium' in the upper
+    third. (Earlier version used a flat midpoint for grey structure
+    regardless of quality - validation against Zameen's calculator in Sep
+    2026 showed real market rates skew toward the upper end of these
+    ranges, so a flat midpoint under-estimated across the board.)
+    """
     match = city_rates[city_rates["city"] == city]
     if match.empty:
         raise ValueError(f"No rate data for city '{city}'")
     row = match.iloc[0]
 
-    grey = (row.grey_structure_rate_low + row.grey_structure_rate_high) / 2
-    finishing = row.finishing_rate_low if quality == "standard" else row.finishing_rate_high
+    grey_range = row.grey_structure_rate_high - row.grey_structure_rate_low
+    if quality == "standard":
+        grey = row.grey_structure_rate_low + grey_range / 6      # lower-third midpoint
+        finishing = row.finishing_rate_low
+    else:
+        grey = row.grey_structure_rate_low + 5 * grey_range / 6  # upper-third midpoint
+        finishing = row.finishing_rate_high
 
     per_sqft = grey + finishing
     total = per_sqft * area_sqft
